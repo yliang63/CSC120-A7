@@ -62,6 +62,11 @@ public class Cafe extends Building {
         System.out.println("Inventory has been restocked.");
     }
 
+    public void goToFloor(int floorNum) {
+        
+        throw new RuntimeException("There is only one floor in Cafe.");
+        
+    }
     /**
      * Main method to show the functionality of the Cafe class.
      */
