@@ -1,3 +1,6 @@
+/**
+ * The Building class represents a generic building with a name, address, and number of floors.
+ */
 public class Building {
 
     protected String name;
@@ -11,7 +14,7 @@ public class Building {
     }
 
     /* Overloaded constructor with address only */
-    public Building(String address) {
+    public Building(String addres) {
         this(); // Call default constructor
         this.address = address; // Override address
     }
@@ -45,6 +48,7 @@ public class Building {
     }
 
     /* Navigation methods */
+
     public Building enter() {
         if (activeFloor != -1) {
             throw new RuntimeException("You are already inside this Building.");
@@ -84,7 +88,12 @@ public class Building {
     public void goDown() {
         this.goToFloor(this.activeFloor - 1);
     }
-
+    
+    /**
+     * Returns a string representationg of Building objects.
+     * 
+     * @return A string that has the name, number of floors and address of the building.
+     */
     public void showOptions() {
         System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)");
     }
@@ -93,6 +102,11 @@ public class Building {
         return this.name + " is a " + this.nFloors + "-story building located at " + this.address + ".";
     }
 
+    /**
+     * Main method to show the functionality of Building class
+     * 
+     * @param args
+     */
     public static void main(String[] args) {
         System.out.println("------------------------------------");
         System.out.println("Test of Building constructor/methods");

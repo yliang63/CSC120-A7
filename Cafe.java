@@ -25,7 +25,18 @@ public class Cafe extends Building {
         this.nSugarPackets = nSugarPackets;
         this.nCreams = nCreams;
         this.nCups = nCups;
-  }
+    }
+    
+    /**
+     * Overloaded constructor without number of Coffee , Sugarpackets, creams and cups.
+     *
+     * @param name Name of the cafe
+     * @param address Address of the cafe
+     * @param nFloors Number of floors in the cafe
+     */
+    public Cafe(String name, String address, int nFloors) {
+        super(name, address, nFloors);
+    }
 
     /**
      * Sells a coffee with their size of coffee, sugarpackets and creams that it needs.
@@ -62,18 +73,29 @@ public class Cafe extends Building {
         System.out.println("Inventory has been restocked.");
     }
 
-    public void goToFloor(int floorNum) {
-        
-        throw new RuntimeException("There is only one floor in Cafe.");
-        
+    /**
+     * Overloaded the parent class method. Print special option for this class.
+     */  
+    public void showOptions(){
+        super.showOptions();
+        System.out.println("Available options at " + this.name + ":\n + sellCoffee \n + restock");
     }
+    
+    /**
+     * Overloaded the parent class method. Do not allow user to move to another floor.
+     */  
+    public void goToFloor(int floorNum) {
+        throw new RuntimeException("There is only one floor in Cafe.");
+    }
+    
     /**
      * Main method to show the functionality of the Cafe class.
      */
     public static void main(String[] args) {
         System.out.println("You have built a cafe: ☕");
-        Cafe cafe = new Cafe("Cafe", "123 Main St", 3, 20, 20, 40, 50);
+        Cafe cafe = new Cafe("Cafe", "123 Main St", 1, 20, 20, 40, 50);
         cafe.sellCoffee(15, 3, 2); 
         cafe.sellCoffee(10, 5, 4);
+        cafe.showOptions();
     }
 }

@@ -8,8 +8,21 @@ import java.util.Map;
 public class Library extends Building {
     private Hashtable<String, Boolean> collection;
     private boolean hasELevator;
+    
     /**
      * Construct with provided name, address, floors number.
+     *
+     * @param name Name of the house
+     * @param address Address of the house
+     * @param nFloors FLoors number in the house
+     */
+    public Library(String name, String address, int nFloors) {
+        super(name, address, nFloors);
+        this.collection = new Hashtable<>();
+    } 
+    
+    /**
+     * Overloaded constructor with boolean of whether the building hasElevator
      *
      * @param name Name of the house
      * @param address Address of the house
@@ -98,12 +111,18 @@ public class Library extends Building {
             System.out.println(entry.getKey()+"-"+status);
         }
     }
-
+ 
+    /**
+     * Overloaded the parent class method. Print special option for this class.
+     */  
     public void showOptions() {
         super.showOptions();
         System.out.println("Available options at " + this.name + ":\n + checkOut \n + printCollection \n + isAvailable \n + containsTitle \n + addTitle \n + removeTitle");
     }
 
+    /**
+     * Overloaded the parent class method. Allow user to use the elevator or move around the floor.
+     */  
     public void goToFloor(int floorNum) {
         if (this.activeFloor == -1) {
             throw new RuntimeException("You are not inside this Library. Must call enter() before navigating between floors.");
@@ -114,18 +133,20 @@ public class Library extends Building {
         System.out.println("Moving to floor #" + floorNum + " of " + this.name);
         this.activeFloor = floorNum;
     }
+
     /**
      * Main method to show the functionality of the Library class.
      */
     public static void main(String[] args) {
         System.out.println("You have built a library: 📖");
-        Library library = new Library("Yvonne" , "8 Neilson way",1,true);
-        library.addTitle("To Kill a Mocking Bird");
-        library.addTitle("Frankly in Love");
-        library.checkOut("Frankly in Love");
-        library.printCollection();
-        library.returnBook("Frankly in Love");
-        System.out.println(library.isAvailable("Gone with the wind"));
+        Library library1 = new Library("Yvonne" , "8 Neilson way",1,true);
+        Library library2 = new Library("Yvonne" , "8 Neilson way",1);
+        library1.addTitle("To Kill a Mocking Bird");
+        library1.addTitle("Frankly in Love");
+        library1.checkOut("Frankly in Love");
+        library1.printCollection();
+        library1.returnBook("Frankly in Love");
+        System.out.println(library1.isAvailable("Gone with the wind"));
 
 
     }

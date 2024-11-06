@@ -71,7 +71,10 @@ public class House extends Building {
             return null;
         }
     }  
-
+    
+    /**
+     * Overloaded the parent class method. Allow user to use the elevator or move around the floor.
+     */  
     public void goToFloor(int floorNum) {
         if (this.activeFloor == -1) {
             throw new RuntimeException("You are not inside this Library. Must call enter() before navigating between floors.");
@@ -82,10 +85,13 @@ public class House extends Building {
         System.out.println("Moving to floor #" + floorNum + " of " + this.name);
         this.activeFloor = floorNum;
     }
-
+    
+    /**
+     * Overloaded the parent class method. Print special option for this class.
+     */  
     public void showOptions() {
         super.showOptions();
-        System.out.println("Available options at " + this.name + ":\n + moveOut \n + moveIn \n + goToFloor(n)");
+        System.out.println("Available options at " + this.name + ":\n + moveOut \n + moveIn ");
     }
 
     /**
