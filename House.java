@@ -23,13 +23,24 @@ public class House extends Building {
         this.residents = new ArrayList<>();
         this.hasDiningRoom = hasDiningRoom;
     }
+
+    /**
+     * Overloaded method. This constructs house with provided name, address, number of floor, dining hall status, and elevator status.
+     * 
+     * @param name Name of the house 
+     * @param address Address of the house
+     * @param nFloors Number of the floors
+     * @param hasDiningRoom Whether the house has dining hall, if it has, it is true, if it has not, it returns false.
+     * @param hasElevator Whether the house has elevators, if it has, return true. If it has not, return false.
+     */
     
     public House(String name, String address, int nFloors, boolean hasDiningRoom, boolean hasElevator) {
       super(name, address, nFloors);
       this.residents = new ArrayList<>();
       this.hasDiningRoom = hasDiningRoom;
       this.hasELevator = hasElevator;
-  }
+    }
+
    /**
     * Check if the house has dining hall.
     * 
@@ -55,6 +66,20 @@ public class House extends Building {
      */
     public void moveIn(String name){
         residents.add(name);
+    }
+
+
+
+ 
+    /**
+     * Overloaded method. This method allows adding multiple residents to the house at once.
+     *
+     * @param names Array of names of the new residents to be added.
+     */
+    public void moveIn(String[] names) {
+        for (String name : names) {
+            residents.add(name);
+        }
     }
 
     /**

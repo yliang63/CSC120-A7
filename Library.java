@@ -43,6 +43,17 @@ public class Library extends Building {
     public void addTitle(String title){
         collection.put(title,true);
     }
+
+    /**
+     * Overloaded method to add multiple titles to the collection list.
+     *
+     * @param titles Array of titles to be added to the collection.
+     */
+    public void addTitles(String[] titles) {
+        for (String title : titles) {
+            collection.put(title, true);
+        }
+    }
  
     /**
      * The title of the books are removed from the collection list.
@@ -151,4 +162,4 @@ public class Library extends Building {
 
     }
   
-  }
+}
